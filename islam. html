@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إلى حبيبتي ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:Tahoma,Arial,sans-serif;
+    background:
+        radial-gradient(circle at 50% 50%, #351027 0%, #160914 35%, #050308 75%);
+    color:white;
+}
+
+/* النجوم */
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 8px white;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.2;transform:scale(.7)}
+    to{opacity:1;transform:scale(1.5)}
+}
+
+/* العنوان */
+.header{
+    position:absolute;
+    top:35px;
+    width:100%;
+    text-align:center;
+    z-index:20;
+}
+
+.header h1{
+    font-size:32px;
+    color:#ffb4d8;
+    text-shadow:
+        0 0 10px #ff2f91,
+        0 0 25px #ff2f91;
+}
+
+.header p{
+    margin-top:10px;
+    color:#ffd6e9;
+    font-size:17px;
+}
+
+/* القلب */
+.scene{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.heart{
+    position:relative;
+    width:150px;
+    height:150px;
+    transform:rotate(-45deg);
+    background:linear-gradient(135deg,#ff6aa8,#d9005c);
+    box-shadow:
+        0 0 25px #ff176f,
+        0 0 60px #ff176f,
+        0 0 100px rgba(255,23,111,.5);
+    animation:heartbeat 1.5s infinite;
+    z-index:8;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff6aa8,#d9005c);
+}
+
+.heart::before{
+    top:-75px;
+    left:0;
+}
+
+.heart::after{
+    left:75px;
+    top:0;
+}
+
+.heart span{
+    position:absolute;
+    transform:rotate(45deg);
+    z-index:10;
+    font-size:55px;
+    left:48px;
+    top:48px;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:rotate(-45deg) scale(1)}
+    50%{transform:rotate(-45deg) scale(1.08)}
+}
+
+/* المدارات الحمراء */
+.red-orbits{
+    position:absolute;
+    width:430px;
+    height:300px;
+    transform-style:preserve-3d;
+    z-index:5;
+}
+
+.red-orbit{
+    position:absolute;
+    inset:0;
+    border:2px solid rgba(255,35,90,.75);
+    border-radius:50%;
+    box-shadow:
+        0 0 8px #ff174f,
+        0 0 18px #ff174f,
+        inset 0 0 10px rgba(255,0,70,.3);
+}
+
+.red-orbit:nth-child(1){
+    transform:rotateX(65deg);
+    animation:spin1 6s linear infinite;
+}
+
+.red-orbit:nth-child(2){
+    transform:rotateX(65deg) rotateZ(60deg);
+    animation:spin2 8s linear infinite reverse;
+}
+
+.red-orbit:nth-child(3){
+    transform:rotateX(65deg) rotateZ(-60deg);
+    animation:spin3 7s linear infinite;
+}
+
+.red-orbit:nth-child(4){
+    transform:rotateX(65deg) rotateZ(90deg);
+    animation:spin4 10s linear infinite reverse;
+}
+
+@keyframes spin1{
+    from{transform:rotateX(65deg) rotateZ(0deg)}
+    to{transform:rotateX(65deg) rotateZ(360deg)}
+}
+
+@keyframes spin2{
+    from{transform:rotateX(65deg) rotateZ(60deg)}
+    to{transform:rotateX(65deg) rotateZ(-300deg)}
+}
+
+@keyframes spin3{
+    from{transform:rotateX(65deg) rotateZ(-60deg)}
+    to{transform:rotateX(65deg) rotateZ(300deg)}
+}
+
+@keyframes spin4{
+    from{transform:rotateX(65deg) rotateZ(90deg)}
+    to{transform:rotateX(65deg) rotateZ(450deg)}
+}
+
+/* النقاط المضيئة */
+.red-dot{
+    position:absolute;
+    width:9px;
+    height:9px;
+    background:#ff174f;
+    border-radius:50%;
+    box-shadow:
+        0 0 8px #ff174f,
+        0 0 20px #ff174f;
+}
+
+/* الملصقات */
+.orbit{
+    position:absolute;
+    width:330px;
+    height:330px;
+    animation:orbit 14s linear infinite;
+    z-index:15;
+}
+
+.sticker{
+    position:absolute;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#fff,#ffd6e8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    cursor:pointer;
+    box-shadow:
+        0 0 10px #fff,
+        0 0 25px #ff69a9;
+    transition:.3s;
+}
+
+.sticker:hover{
+    transform:scale(1.25);
+}
+
+.s1{top:-20px;left:130px}
+.s2{right:-20px;top:130px}
+.s3{bottom:-20px;left:130px}
+.s4{left:-20px;top:130px}
+.s5{top:35px;right:35px}
+.s6{bottom:35px;left:35px}
+
+@keyframes orbit{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+/* النصوص حول الصفحة */
+.floating{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    bottom:35px;
+    font-size:18px;
+    color:#ffc3dd;
+    text-shadow:0 0 10px #ff3186;
+}
+
+/* الخلفية */
+.glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(255,0,100,.08);
+    filter:blur(60px);
+}
+
+/* النافذة */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(5px);
+    display:none;
+    z-index:100;
+}
+
+.message{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:min(90%,430px);
+    padding:30px;
+    border-radius:25px;
+    background:linear-gradient(145deg,#310d25,#120711);
+    border:1px solid rgba(255,100,170,.5);
+    box-shadow:
+        0 0 30px #ff267d,
+        0 0 80px rgba(255,38,125,.4);
+    text-align:center;
+    display:none;
+    z-index:101;
+}
+
+.message h2{
+    color:#ff91c4;
+    margin-bottom:18px;
+}
+
+.message p{
+    color:#ffe6f1;
+    line-height:2;
+    font-size:16px;
+}
+
+.close{
+    margin-top:22px;
+    padding:10px 25px;
+    border:0;
+    border-radius:20px;
+    background:#ff267d;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+    box-shadow:0 0 15px #ff267d;
+}
+
+.paused .orbit{
+    animation-play-state:paused;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="header">
+    <h1>إلى حبيبتي ❤️</h1>
+    <p>ندور في حبك أزين 🫠🥰</p>
+</div>
+
+<div class="scene">
+
+    <div class="glow"></div>
+
+    <!-- المدارات -->
+    <div class="red-orbits">
+
+        <div class="red-orbit">
+            <div class="red-dot" style="top:-5px;left:50%;"></div>
+        </div>
+
+        <div class="red-orbit">
+            <div class="red-dot" style="top:50%;right:-5px;"></div>
+        </div>
+
+        <div class="red-orbit">
+            <div class="red-dot" style="bottom:-5px;left:30%;"></div>
+        </div>
+
+        <div class="red-orbit">
+            <div class="red-dot" style="top:20%;left:-5px;"></div>
+        </div>
+
+    </div>
+
+    <!-- القلب -->
+    <div class="heart">
+        <span>❤️</span>
+    </div>
+
+    <!-- الملصقات -->
+    <div class="orbit">
+
+        <div class="sticker s1"
+             data-title="حبيبتي ❤️"
+             data-msg="وجودك في حياتي من أجمل الأشياء اللي صراتلي.">
+            🥰
+        </div>
+
+        <div class="sticker s2"
+             data-title="ندور في حبك 🫠"
+             data-msg="مهما حاولت نوصفلك واش نحس، الكلام ديما يعجز قدامك.">
+            🦋
+        </div>
+
+        <div class="sticker s3"
+             data-title="أنتِ أجمل صدفة ✨"
+             data-msg="من نهار عرفتك وحياتي ولات فيها حاجة أجمل.">
+            💗
+        </div>
+
+        <div class="sticker s4"
+             data-title="قلبـي ❤️"
+             data-msg="مكانتك عندي ما يقدر حتى كلام يوصفها.">
+            🐻
+        </div>
+
+        <div class="sticker s5"
+             data-title="لكِ أنتِ 🌙"
+             data-msg="نتمنى ديما نشوفك فرحانة ونكون سبب في ابتسامتك.">
+            🌸
+        </div>
+
+        <div class="sticker s6"
+             data-title="من إسلام ❤️"
+             data-msg="حبيبتي، لو كان نقدر نهديك حاجة تليق بقيمتك، نهديك أجمل أيام العمر كامل. ❤️">
+            💕
+        </div>
+
+    </div>
+
+</div>
+
+<div class="floating">
+    🫠🥰 ندور في حبك أزين 🥰🫠
+</div>
+
+<!-- النافذة -->
+<div class="overlay" id="overlay"></div>
+
+<div class="message" id="message">
+
+    <h2 id="messageTitle"></h2>
+
+    <p id="messageText"></p>
+
+    <button class="close" onclick="closeMessage()">
+        رجوع ❤️
+    </button>
+
+</div>
+
+<script>
+
+/* إنشاء النجوم */
+const stars = document.getElementById("stars");
+
+for(let i=0;i<100;i++){
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left = Math.random()*100 + "%";
+    star.style.top = Math.random()*100 + "%";
+
+    star.style.animationDelay =
+        Math.random()*3 + "s";
+
+    stars.appendChild(star);
+}
+
+
+/* الرسائل */
+const stickers =
+document.querySelectorAll(".sticker");
+
+const message =
+document.getElementById("message");
+
+const overlay =
+document.getElementById("overlay");
+
+const messageTitle =
+document.getElementById("messageTitle");
+
+const messageText =
+document.getElementById("messageText");
+
+
+stickers.forEach(sticker => {
+
+    sticker.addEventListener("click", () => {
+
+        messageTitle.textContent =
+            sticker.dataset.title;
+
+        messageText.textContent =
+            sticker.dataset.msg;
+
+        message.style.display = "block";
+        overlay.style.display = "block";
+
+        document.body.classList.add("paused");
+
+    });
+
+});
+
+
+/* إغلاق الرسالة */
+function closeMessage(){
+
+    message.style.display = "none";
+    overlay.style.display = "none";
+
+    document.body.classList.remove("paused");
+
+}
+
+
+/* إذا ضغط على الخلفية */
+overlay.addEventListener("click", closeMessage);
+
+</script>
+
+</body>
+</html>
